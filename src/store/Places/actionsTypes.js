@@ -1,0 +1,1 @@
+export const SELECTED_PLACE = 'SELECTED_PLACE'
