@@ -19,7 +19,6 @@ export const Form = styled.form`
 export const Input = styled.input`
   border: 1px solid #aaa;
   width: 100%;
-  margin-bottom: 30px;
   padding: 15px 0 15px 20px;
   box-sizing: border-box;
   border-radius: 3px;
@@ -36,6 +35,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 30px;
 `
 export const Label = styled.label`
   display: block;

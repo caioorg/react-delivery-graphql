@@ -1,1 +1,2 @@
 export const SEARCH_ADDRESS = 'SEARCH_ADDRESS'
+export const SEARCH_ERROR = 'SEARCH_ERROR'

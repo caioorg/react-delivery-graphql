@@ -18,14 +18,3 @@ export const Container = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
 `
-export const Header = styled.header`
-  background: #000000;
-  padding: 30px;
-  margin-bottom: 30px;
-`
-export const Footer = styled.footer`
-  background: #333333;
-  padding: 50px 30px;
-  margin-top: 30px;
-  color: #ffffff;
-`

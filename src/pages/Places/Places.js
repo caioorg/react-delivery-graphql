@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { Loading } from '../../components'
+import { Loading, Error } from '../../components'
 import searchQuery from '../../querys/places'
 import { selectedPlace } from '../../store/Places/actions'
 
@@ -44,7 +44,13 @@ class Places extends Component {
       >
         {({ data, loading, error }) => {
           if (loading) return <Loading />
-          if (error) return <p>ERROR</p>
+          if (error)
+            return (
+              <Error
+                message='Não foi possivel encontrar um posto, por favor busque novamente clicando:'
+                url='/'
+              />
+            )
 
           return (
             <Container>

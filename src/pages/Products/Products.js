@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { Loading, Cards } from '../../components/'
+import { Loading, Cards, Error } from '../../components/'
 import { Container, Footer, Button } from './styles'
 import productsQuery from '../../querys/products'
 
@@ -24,7 +24,13 @@ class Products extends Component {
       >
         {({ data, loading, error }) => {
           if (loading) return <Loading />
-          if (error) return <p>ERROR</p>
+          if (error)
+            return (
+              <Error
+                message='Não foi possivel encontrar produtos, por favor busque novamente clicando:'
+                url='/'
+              />
+            )
 
           return (
             <Container>

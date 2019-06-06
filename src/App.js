@@ -10,7 +10,8 @@ import thunk from 'redux-thunk'
 import { ApolloProvider } from 'react-apollo'
 import apolloClient from './services/apollo'
 
-import { Container, Header, GlobalStyle, Footer } from './style.js'
+import { Header, Footer } from './components/'
+import { Container, GlobalStyle } from './style.js'
 
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -23,12 +24,7 @@ class App extends Component {
       <>
         <GlobalStyle />
         <Container>
-          <Header>
-            <img
-              src='https://www.ze.delivery/src/img/white-logo-horizontal.png'
-              width='20%'
-            />
-          </Header>
+          <Header />
           <ApolloProvider client={apolloClient}>
             <Provider store={store}>
               <BrowserRouter>
@@ -40,8 +36,7 @@ class App extends Component {
               </BrowserRouter>
             </Provider>
           </ApolloProvider>
-
-          <Footer>Zé Delivery</Footer>
+          <Footer />
         </Container>
       </>
     )

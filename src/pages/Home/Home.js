@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { searchAddress } from '../../store/Search/actions'
 
+import { Error } from '../../components'
 import { Container, Input, Form, Button, Label } from './styles'
 
 class Home extends Component {
@@ -13,8 +14,11 @@ class Home extends Component {
 
   handleSearchAddress = event => {
     event.preventDefault()
-    this.props.searchAddress(event.target.address.value)
-    this.setState({ redirect: true })
+    console.log(process)
+    // this.props.searchAddress(event.target.address.value)
+    // if (this.props.error) {
+    //   this.setState({ redirect: true })
+    // }
   }
 
   render() {
@@ -30,6 +34,7 @@ class Home extends Component {
             name='address'
             placeholder='Ex: Av Paulista 228'
           />
+          {this.props.error && <Error message={this.props.error} />}
           <Button>Procurar</Button>
         </Form>
       </Container>
@@ -37,7 +42,10 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({ lat: state.search.lat })
+const mapStateToProps = state => ({
+  lat: state.search.lat,
+  error: state.search.error
+})
 
 export default connect(
   mapStateToProps,
