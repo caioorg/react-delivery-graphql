@@ -14,11 +14,13 @@ class Home extends Component {
 
   handleSearchAddress = event => {
     event.preventDefault()
-    console.log(process)
-    // this.props.searchAddress(event.target.address.value)
-    // if (this.props.error) {
-    //   this.setState({ redirect: true })
-    // }
+    this.props.searchAddress(
+      event.target.address.value,
+      process.env.REACT_APP_KEY_API
+    )
+    if (this.props.error) {
+      this.setState({ redirect: true })
+    }
   }
 
   render() {
