@@ -10,6 +10,7 @@ This project developed as a form of study using some libraries that the job mark
 - React Router Dom by [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
 - GraphQL - React by [graphql-apollo-react](https://www.apollographql.com/docs/react/)
 - Styled Components by [styled-components](https://www.styled-components.com/)
+- Fetch API by [fetch](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch)
 - TestCafé by [testcafe](https://devexpress.github.io/testcafe/documentation/test-api/)
 
 ## Functional requirements:
