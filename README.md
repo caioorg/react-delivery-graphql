@@ -12,6 +12,14 @@ This project developed as a form of study using some libraries that the job mark
 - Styled Components by [styled-components](https://www.styled-components.com/)
 - TestCafé by [testcafe](https://devexpress.github.io/testcafe/documentation/test-api/)
 
+## Functional requirements:
+
+Your development environment needs to have:
+
+- Node JS
+- Yarn
+- Google Chrome to run the tests
+
 
 ## Getting Started
 
