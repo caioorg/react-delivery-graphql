@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "SITE_URL=http://localhost:3000/ ./node_modules/.bin/testcafe chrome ./src/__test__/**/*",
+    "test": "./node_modules/.bin/testcafe chrome:headless ./src/__test__/**/*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "testcafe": "^1.2.0"
   }
 }

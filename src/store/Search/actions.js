@@ -11,12 +11,14 @@ export const searchAddress = address => {
           dispatch({
             type: SEARCH_ADDRESS,
             lat: result[0].geometry.location.lat,
-            lng: result[0].geometry.location.lng
+            lng: result[0].geometry.location.lng,
+            status: true
           })
         } else {
           dispatch({
             type: SEARCH_ERROR,
-            error: 'Endereço não encontrado'
+            error: 'Endereço não encontrado',
+            status: false
           })
         }
       })

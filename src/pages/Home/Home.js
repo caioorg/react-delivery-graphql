@@ -8,23 +8,13 @@ import { Error } from '../../components'
 import { Container, Input, Form, Button, Label } from './styles'
 
 class Home extends Component {
-  state = {
-    redirect: false
-  }
-
   handleSearchAddress = event => {
     event.preventDefault()
-    this.props.searchAddress(
-      event.target.address.value,
-      process.env.REACT_APP_KEY_API
-    )
-    if (this.props.error) {
-      this.setState({ redirect: true })
-    }
+    this.props.searchAddress(event.target.address.value)
   }
 
   render() {
-    if (this.state.redirect) return <Redirect to='/postos' />
+    if (this.props.status) return <Redirect to='/postos' />
 
     return (
       <Container>
@@ -46,7 +36,8 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   lat: state.search.lat,
-  error: state.search.error
+  error: state.search.error,
+  status: state.search.status
 })
 
 export default connect(

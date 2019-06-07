@@ -1,28 +1,24 @@
 import { Selector } from 'testcafe'
 
-fixture`Getting Started`.page`${process.env.SITE_URL}`
+fixture`Address search`.page`http://localhost:3000/`
 
-const selectBrand = Selector('#brand')
-const optionsBrand = selectBrand.find('option')
-const selectModel = Selector('#model')
-const optionsModel = selectModel.find('option')
-const selectYear = Selector('#year')
-const optionsYeat = selectYear.find('option')
-const detailsCar = Selector('.details-car')
+const formSearchMaps = Selector('form')
+const inputSearchMaps = formSearchMaps.find('input')
+const submitSearchMaps = formSearchMaps.find('button')
+const errorSearchMaps = formSearchMaps.find('.error-message')
 
-const buttonSubmit = Selector('.form-button')
-
-test('Checking flow of choice of vehicle', async t => {
+test('check if there is an address entered and validate if there is a post', async t => {
   await t
-    .click(selectBrand)
-    .click(optionsBrand.withText('VW - VolksWagen'))
-    .click(buttonSubmit)
-    .click(selectModel)
-    .click(optionsModel.withText('AMAROK CD2.0 16V/S CD2.0 16V TDI 4x2 Die'))
-    .click(buttonSubmit)
-    .click(selectYear)
-    .click(optionsYeat.withText('2013 Diesel'))
-    .click(buttonSubmit)
-    .expect(detailsCar)
+    .typeText(inputSearchMaps, 'Rua Américo Brasiliense, São Paulo')
+    .click(submitSearchMaps)
+    .expect(Selector('select'))
     .ok()
+})
+
+test('performs an address validation, seeking an error return if not found.', async t => {
+  await t
+    .typeText(inputSearchMaps, '123456')
+    .click(submitSearchMaps)
+    .expect(Selector(errorSearchMaps).innerText)
+    .eql('ENDEREÇO NÃO ENCONTRADO')
 })
